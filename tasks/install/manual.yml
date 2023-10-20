@@ -1,0 +1,9 @@
+---
+
+- name: Install Dependencies
+  package:
+    name:
+      - unzip
+      - curl
+    state: present
+

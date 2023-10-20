@@ -1,0 +1,13 @@
+---
+
+- name: Install Boundary
+  block:
+    - name: Debian
+      include: install/debian.yml
+      when: ansible_os_family == 'Debian'
+    - name: RedHat
+      include: install/redhat.yml
+      when: ansible_os_family == 'RedHat'
+    - name: Manual
+      include: install/manual.yml
+      when: ansible_os_family not in ['Debian', 'RedHat']

@@ -1,0 +1,16 @@
+---
+- name: Hashicorp GPG Key
+  apt_key:
+    url: "{{ boundary_apt_repo }}/gpg"
+
+- name: Hashicorp Repo
+  apt_repository:
+    repo: "deb [arch=amd64] {{ boundary_apt_repo }} {{ ansible_distribution_release }} main"
+    filename: hashicorp
+    update_cache: yes
+
+- name: Install Boundary
+  apt:
+    name: "boundary={{ boundary_version }}"
+    force: yes
+

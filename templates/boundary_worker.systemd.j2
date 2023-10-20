@@ -1,0 +1,16 @@
+[Unit]
+Description="HashiCorp Boundary Worker"
+Documentation=https://www.boundaryproject.io/docs/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart={{ boundary_install_directory }}/boundary server -config {{ boundary_worker_cfg }}
+User={{ boundary_user }}
+Group={{ boundary_group }}
+LimitMEMLOCK=infinity
+AmbientCapabilities=CAP_IPC_LOCK+ep
+CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
+
+[Install]
+WantedBy=multi-user.target
