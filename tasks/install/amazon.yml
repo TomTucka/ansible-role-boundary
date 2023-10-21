@@ -5,11 +5,10 @@
     state: present
   become: true
 
-- name: Hashicorp Repo
-  command: "yum-config-manager --add-repo {{ boundary_yum_repo }}"
-  args:
-    creates: /etc/yum.repos.d/hashicorp.repo
-  become: true
+- name: Installing HashiCorp repository for Amazon Linux
+  get_url:
+    url: https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+    dest: /etc/yum.repos.d/hashicorp.repo
 
 - name: Install Boundary
   yum:

@@ -1,7 +1,12 @@
 ---
 
 boundary_version: '0.14.0'
-boundary_enterprise: true
+boundary_enterprise: false
+boundary_license: ''
+boundary_controller: true
+boundary_kms_worker: false
+boundary_pki_worker: false
+
 boundary_home_dir: '/etc/boundary.d'
 boundary_worker_cfg: '{{ boundary_home_dir }}/worker.hcl'
 boundary_controller_cfg: '{{ boundary_home_dir }}/controller.hcl'

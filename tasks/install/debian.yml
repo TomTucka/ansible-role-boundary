@@ -13,4 +13,11 @@
   apt:
     name: "boundary={{ boundary_version }}"
     force: yes
+  when: not boundary_enterprise
 
+- name: Install Enterprise Boundary
+  apt:
+    name: "boundary-enterprise={{ boundary_version }}"
+    state: present
+    update_cache: true
+  when: boundary_enterprise
