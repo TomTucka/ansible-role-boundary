@@ -8,6 +8,17 @@
     - name: RedHat
       include: install/redhat.yml
       when: ansible_os_family == 'RedHat'
+    - name: Amazon
+      include: install/amazon.yml
+      when: ansible_os_family == 'Amazon'
     - name: Manual
       include: install/manual.yml
-      when: ansible_os_family not in ['Debian', 'RedHat']
+      when: ansible_os_family not in ['Debian', 'RedHat', 'Amazon']
+
+- name: Create Controller Cfg
+  when: boundary_controller == 'true'
+  include: configure-controller.yml
+
+- name: Create Worker Cfg
+  when: boundary_pki_worker == 'true' || boundary_kms_worker == 'true'
+  include: configure-worker.yml
