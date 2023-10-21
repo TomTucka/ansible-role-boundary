@@ -17,7 +17,7 @@ Galaxy File:
 ```
 
 Playbook File:
-```
+```yml
 ---
 - name: Prepare Image for HashiCorp Boundary
   hosts: all
