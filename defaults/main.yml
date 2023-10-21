@@ -1,0 +1,18 @@
+---
+
+boundary_version: '0.14.0'
+boundary_enterprise: true
+boundary_home_dir: '/etc/boundary.d'
+boundary_worker_cfg: '{{ boundary_home_dir }}/worker.hcl'
+boundary_controller_cfg: '{{ boundary_home_dir }}/controller.hcl'
+
+boundary_user: 'boundary'
+boundary_group: 'boundary'
+
+boundary_yum_repo: 'https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo'
+boundary_apt_repo: 'https://apt.releases.hashicorp.com'
+
+
+# Controller Cfg
+boundary_disable_mlock: true
+boundary_cluster_public_addr: "env://BOUNDARY_PUBLIC_CLUSTER_ADDR"
