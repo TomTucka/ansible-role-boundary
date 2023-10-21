@@ -1,6 +1,6 @@
 # ansible-role-boundary
 
-A role to build a production grade HashiCorp Boundary. This role has been built to be used in conjunction
+A role to build production grade HashiCorp Boundary. This role has been built to be used in conjunction
 with [Packer](https://packer.io/) to build production-grade machine images that can be used to deploy Boundary into a cloud or data-center environment.
 
 This role isn't used for deploying or orchestrating Boundary, that should be done using [Terraform](https://terraform.io/).
